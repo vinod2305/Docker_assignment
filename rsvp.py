@@ -35,8 +35,8 @@ mydb = mysql.connector.connect(user='insta_admin', password='insta2018',
   host='localhost',
   database="RSVP"
 ) """
-
-
+mycursor = mydb.cursor();
+mycursor.execute("CREATE TABLE IF NOT EXISTS rsvpdata (_id int(100) NOT NULL AUTO_INCREMENT,name varchar(100) NOT NULL,email varchar(100) NOT NULL,PRIMARY KEY (_id)) ;")
 class RSVP(object):
     """Simple Model class for RSVP"""
     def __init__(self, name, email, _id=None):

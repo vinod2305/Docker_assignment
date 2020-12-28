@@ -6,7 +6,7 @@ import socket
 import os
 import json
 import time
-time.sleep(10000)
+time.sleep(30)
 
 app = Flask(__name__)
 
@@ -20,13 +20,15 @@ db = client.rsvpdata
  """
 
 config = {
-         'user': 'root',
-         'password': 'root',
-         'host': 'mysql',
+        'user': 'root',
+         'password': 'password',
+         'host': 'db',
          'port': '3306',
-          'database': 'RSVP'
+          'database': 'RSVP',
       }
-mydb = mysql.connector.connect(**config)
+mydb = mysql.connector.connect(user='insta_admin', password='insta2018',
+                              host='db', database='RSVP',
+                              auth_plugin='mysql_native_password')
 """ mydb = mysql.connector.connect(
   user="root",
   password="",

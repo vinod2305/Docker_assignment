@@ -1,14 +1,15 @@
 version: '3'
 services:
- mysql:
+ db:
    image: mysql   
    ports:
     - "3306:3306"
    volumes:
-     - .:/docker-entrypoint-initdb.d
-   environment:    
-    MYSQL_PASSWORD: root
+    - .:/docker-entrypoint-initdb.d
+   environment:
     MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: insta_admin
+    MYSQL_PASSWORD: insta2018
     MYSQL_DATABASE: RSVP
    networks:
     - rsvpnet
@@ -23,7 +24,7 @@ services:
     TEXT2: Registration 
     ORGANIZER: UVCE
    depends_on:
-    - mysql
+    - db
    networks:
     - rsvpnet
 
